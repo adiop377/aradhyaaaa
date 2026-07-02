@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Profile | Santosh Sinha - Aradhya Life Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .profile-detailed {
+            padding: 150px 20px 100px;
+            background: var(--bg-soft);
+            min-height: 100vh;
+        }
+        .profile-card-large {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+        }
+        .profile-sidebar {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .profile-sidebar img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+            object-fit: cover;
+            object-position: top center;
+        }
+        .profile-main-content {
+            padding: 60px;
+        }
+        .profile-main-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        .experience-timeline {
+            margin-top: 40px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid var(--accent);
+            padding-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        .back-home {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        .profile-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .profile-social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white !important;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .profile-social-links a i {
+            width: 24px;
+            height: 24px;
+            stroke: white !important;
+        }
+        .profile-social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .profile-social-links a.insta:hover { background: #E1306C; }
+        .profile-social-links a.wp:hover { background: #25D366; }
+        .profile-social-links a.mail:hover { background: #EA4335; }
+        
+        @media (max-width: 968px) {
+            .profile-card-large {
+                grid-template-columns: 1fr;
+            }
+            .profile-detailed {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- AI Voice Agent Sticky Button -->
+    <div class="ai-sticky" style="position: fixed; bottom: 30px; left: 30px; z-index: 999;">
+        <a href="/ai" class="btn" style="background: linear-gradient(135deg, #E11D48, #9333ea); color: white; border-radius: 50px; padding: 15px 25px; box-shadow: 0 10px 25px rgba(225, 29, 72, 0.4); display: flex; align-items: center; gap: 10px; font-weight: bold; text-decoration: none; animation: pulse 2s infinite;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            </svg>
+            Talk to AI Agent
+        </a>
+    </div>
+    
+    <style>
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(225, 29, 72, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+        }
+        .ai-sticky a:hover { transform: translateY(-5px) scale(1.05); }
+    </style>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Aradhya <span>Life Solutions</span></a>
+            <a href="index.html" class="btn btn-outline" style="padding: 8px 15px; font-size: 0.8rem;">Back Home</a>
+        </div>
+    </nav>
+
+    <main class="profile-detailed">
+        <div class="profile-card-large">
+            <div class="profile-sidebar">
+                <img src="profile_image,png.jpg" alt="Santosh Sinha">
+                <h2>Santosh Sinha</h2>
+                                <p style="color: rgba(255,255,255,0.7); margin-bottom: 5px;">Chief Business Associate at TATA AIA</p>
+                                <p style="color: rgba(255,255,255,1); font-weight: 700; font-size: 1rem; margin-bottom: 30px; letter-spacing: 0.5px;">CEO of Aradhya Life Solutions</p>
+                <!-- Guaranteed Visibility Social Links (Inline SVGs) -->
+                <div class="profile-social-links">
+                    <a href="https://www.instagram.com/aradhya.life.solutions?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="insta" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://wa.me/918409533045" target="_blank" class="wp" title="WhatsApp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+                    </a>
+                    <a href="mailto:aradhyalifesolutions@gmail.com" class="mail" title="Gmail">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                </div>
+                <!-- Work with me button relocated to Sidebar -->
+                <div style="margin-top: 40px;">
+                    <a href="tel:+918409533045" class="btn btn-primary" style="width: 100%; justify-content: center;">Work with me</a>
+                </div>
+            </div>
+            <div class="profile-main-content">
+                <h1>Professional Journey</h1>
+                                <p>With years of experience in the insurance sector, I have dedicated my career to simplifying complex financial decisions for families across India. My association with Tata AIA and Aradhya Life Solutions has been built on the foundation of trust, transparency, and relentless client service.</p>
+                
+                <div class="experience-timeline">
+                    <div class="timeline-item">
+                                                <h4>Chief Business Associate & CEO</h4>
+                        <p>Currently leading a high-performing team of advisors, focusing on training, mentorship, and relationship building.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Expert Financial Advisor</h4>
+                        <p>Help secured over 800+ lives through personalized insurance solutions and risk assessment.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Service Excellence Award</h4>
+                        <p>Recognized for maintaining a 99.41% claim settlement record and providing honest guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons({
+            attrs: {
+                'stroke-width': 2,
+                'stroke': 'currentColor'
+            }
+        });
+    </script>
+</body>
+</html>

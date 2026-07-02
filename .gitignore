@@ -1,0 +1,7 @@
+ node_modules/
+.env
+ai-backend/node_modules/
+ai-frontend/node_modules/
+ai-frontend/.next/
+*.zip
+.DS_Store

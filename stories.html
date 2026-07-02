@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories | Aradhya Life Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .stories-hero {
+            padding: 150px 20px 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            text-align: center;
+        }
+        .story-container {
+            max-width: 900px;
+            margin: -60px auto 100px;
+            position: relative;
+            z-index: 10;
+        }
+        .story-item {
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .story-img {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+        }
+        .story-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .story-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(225, 29, 72, 0.1);
+            color: var(--accent);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .story-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .story-content blockquote {
+            font-style: italic;
+            color: var(--text-muted);
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin: 25px 0;
+            font-size: 1.1rem;
+        }
+        @media (max-width: 768px) {
+            .story-item {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+            .story-img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- AI Voice Agent Sticky Button -->
+    <div class="ai-sticky" style="position: fixed; bottom: 30px; left: 30px; z-index: 999;">
+        <a href="/ai" class="btn" style="background: linear-gradient(135deg, #E11D48, #9333ea); color: white; border-radius: 50px; padding: 15px 25px; box-shadow: 0 10px 25px rgba(225, 29, 72, 0.4); display: flex; align-items: center; gap: 10px; font-weight: bold; text-decoration: none; animation: pulse 2s infinite;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            </svg>
+            Talk to AI Agent
+        </a>
+    </div>
+    
+    <style>
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(225, 29, 72, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+        }
+        .ai-sticky a:hover { transform: translateY(-5px) scale(1.05); }
+    </style>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Aradhya <span>Life Solutions</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="tel:+918409533045" class="btn btn-primary nav-cta">Book Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="stories-hero">
+        <div class="container">
+            <h1 class="section-title">Real Stories. <span class="text-accent">Real Impact.</span></h1>
+            <p>Transparency and trust in action. See how we've helped families secure their future.</p>
+        </div>
+    </header>
+
+    <div class="story-container">
+        <!-- Story 1 -->
+        <article class="story-item reveal active">
+            <div class="story-img">
+                <img src="success_story_family.png" alt="Happy family secured with insurance">
+            </div>
+            <div class="story-content">
+                <span class="story-badge">Family Protection</span>
+                <h2>The Sharma Family's Safety Net</h2>
+                <p>After being confused by complex jargon from multiple agents, the Sharmas came to us seeking clarity. We simplified their options and built a comprehensive life cover that fits their budget.</p>
+                                <blockquote>"Aradhya Life Solutions simplified everything. I finally feel my family is truly safe."</blockquote>
+                <p><strong>Result:</strong> Fully secured future with 0% confusion.</p>
+            </div>
+        </article>
+
+        <!-- Story 2 -->
+        <article class="story-item reveal active">
+            <div class="story-content">
+                <span class="story-badge">Retirement Planning</span>
+                <h2>Mr. Verma’s Peaceful Retirement</h2>
+                <p>Approaching retirement without a clear financial plan is stressful. We helped Mr. Verma structure his investments to ensure a steady, guaranteed income for life.</p>
+                <blockquote>"I can now enjoy my retirement without worrying about monthly expenses."</blockquote>
+                <p><strong>Result:</strong> Guaranteed life-long monthly income secured.</p>
+            </div>
+            <div class="story-img">
+                <img src="happy_team_benefits.png" alt="Happy retirement">
+            </div>
+        </article>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-banner" style="background: var(--primary); color: white; padding: 80px 20px;">
+        <div class="container" style="text-align: center;">
+            <h2 style="margin-bottom: 30px;">Want to be our next <span class="text-accent">success story?</span></h2>
+            <a href="tel:+918409533045" class="btn btn-primary">Start Your Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Aradhya Life Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

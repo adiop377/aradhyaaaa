@@ -1,0 +1,320 @@
+[
+  {
+    "name": "Friend",
+    "city": "Not Provided",
+    "requirement": "मैं रांची से बात कर रहा हूं और मुझे कंप्लेंट लेना है",
+    "budget": "मेरा बजट लगभग 50000 और टाइम फ्रेम 2 साल का है",
+    "phoneNumber": "9999554224",
+    "conversationTranscript": [
+      {
+        "role": "user",
+        "text": "हाय मेरा नाम आदि है"
+      },
+      {
+        "role": "agent",
+        "text": "Bohot acha laga aapse milkar, Friend! Aap kaunse shahar (city) se baat kar rahe hain, aur aapki kya requirements hain?"
+      },
+      {
+        "role": "user",
+        "text": "मैं रांची से बात कर रहा हूं और मुझे कंप्लेंट लेना है"
+      },
+      {
+        "role": "agent",
+        "text": "Samajh gaya. Aradhya Life Solutions isme aapki puri madad karega. Is goal ke liye aapka koi specific budget ya time-frame hai?"
+      },
+      {
+        "role": "user",
+        "text": "मेरा बजट लगभग 50000 और टाइम फ्रेम 2 साल का है"
+      },
+      {
+        "role": "agent",
+        "text": "Perfect! Yeh details maine save kar li hain. Bas apna 10-digit phone number bata dijiye taaki main directly hamare best expert ko aapki profile assign kar saku."
+      },
+      {
+        "role": "user",
+        "text": "9999 554 2241"
+      }
+    ],
+    "createdAt": "2026-05-16T18:18:34.946Z"
+  },
+  {
+    "name": "Friend",
+    "city": "Not Provided",
+    "requirement": "मैं रांची से और मुझे टेंप्लेट लेना है",
+    "budget": "मेरा बजट है 50000 का और टाइम फ्रेम 2 साल का",
+    "phoneNumber": "9955542241",
+    "conversationTranscript": [
+      {
+        "role": "user",
+        "text": "है मेरा नाम आदि है"
+      },
+      {
+        "role": "agent",
+        "text": "Bohot acha laga aapse milkar, Friend! Aap kaunse shahar (city) se baat kar rahe hain, aur aapki kya requirements hain?"
+      },
+      {
+        "role": "user",
+        "text": "मैं रांची से और मुझे टेंप्लेट लेना है"
+      },
+      {
+        "role": "agent",
+        "text": "Samajh gaya. Aradhya Life Solutions isme aapki puri madad karega. Is goal ke liye aapka koi specific budget ya time-frame hai?"
+      },
+      {
+        "role": "user",
+        "text": "मेरा बजट है 50000 का और टाइम फ्रेम 2 साल का"
+      },
+      {
+        "role": "agent",
+        "text": "Perfect! Yeh details maine save kar li hain. Bas apna 10-digit phone number bata dijiye taaki main directly hamare best expert ko aapki profile assign kar saku."
+      },
+      {
+        "role": "user",
+        "text": "9955 42241"
+      },
+      {
+        "role": "agent",
+        "text": "Maaf kijiyega, mujhe valid phone number samajh nahi aaya. Kripya apna sahi 10-digit mobile number bataiye."
+      },
+      {
+        "role": "user",
+        "text": "9955 42241"
+      },
+      {
+        "role": "agent",
+        "text": "Maaf kijiyega, mujhe valid phone number samajh nahi aaya. Kripya apna sahi 10-digit mobile number bataiye."
+      },
+      {
+        "role": "user",
+        "text": "9955 542241"
+      }
+    ],
+    "createdAt": "2026-05-18T16:51:14.764Z"
+  },
+  {
+    "name": "आदित्य",
+    "city": "हूं",
+    "requirement": "मैं रांची से हूं और मेरी रिक्वायरमेंट है एक टर्म प्लान देना",
+    "budget": "मेरा बजट 50000 का है और टाइम फ्रेम 2 साल का",
+    "phoneNumber": "9955542241",
+    "conversationTranscript": [
+      {
+        "role": "user",
+        "text": "मेरा नाम आदित्य है"
+      },
+      {
+        "role": "agent",
+        "text": "Bohot acha laga aapse milkar, आदित्य! Aap kaunse shahar (city) se baat kar rahe hain, aur aapki kya requirements hain?"
+      },
+      {
+        "role": "user",
+        "text": "मैं रांची से हूं और मेरी रिक्वायरमेंट है एक टर्म प्लान देना"
+      },
+      {
+        "role": "agent",
+        "text": "Samajh gaya. Aradhya Life Solutions isme aapki puri madad karega. Is goal ke liye aapka koi specific budget ya time-frame hai?"
+      },
+      {
+        "role": "user",
+        "text": "मेरा बजट 50000 का है और टाइम फ्रेम 2 साल का"
+      },
+      {
+        "role": "agent",
+        "text": "Perfect! Yeh details maine save kar li hain. Bas apna 10-digit phone number bata dijiye taaki main directly hamare best expert ko aapki profile assign kar saku."
+      },
+      {
+        "role": "user",
+        "text": "9955 542241"
+      }
+    ],
+    "createdAt": "2026-05-18T16:56:01.438Z"
+  },
+  {
+    "name": "संतोष",
+    "city": "बोल",
+    "requirement": "मैं रांची शहर से बोल रहा हूं मुझे इंश्योरेंस एजेंट",
+    "budget": "नहीं",
+    "phoneNumber": "7079353555",
+    "conversationTranscript": [
+      {
+        "role": "user",
+        "text": "मेरा नाम संतोष सिंह है"
+      },
+      {
+        "role": "agent",
+        "text": "Bohot acha laga aapse milkar, संतोष! Aap kaunse shahar (city) se baat kar rahe hain, aur aapki kya requirements hain?"
+      },
+      {
+        "role": "user",
+        "text": "मैं रांची शहर से बोल रहा हूं मुझे इंश्योरेंस एजेंट"
+      },
+      {
+        "role": "agent",
+        "text": "Samajh gaya. Aradhya Life Solutions isme aapki puri madad karega. Is goal ke liye aapka koi specific budget ya time-frame hai?"
+      },
+      {
+        "role": "user",
+        "text": "नहीं"
+      },
+      {
+        "role": "agent",
+        "text": "Perfect! Yeh details maine save kar li hain. Bas apna 10-digit phone number bata dijiye taaki main directly hamare best expert ko aapki profile assign kar saku."
+      },
+      {
+        "role": "user",
+        "text": "7079 353 555"
+      }
+    ],
+    "createdAt": "2026-05-18T16:58:06.874Z"
+  },
+  {
+    "_id": "local_1782980990773",
+    "name": "I have to buy a insurence",
+    "city": "आई एम फ्रॉम रांची झारखंड",
+    "requirement": "Req: आई हैव टू बाय ए इंश्योरेंस | Age: m19 | Ins: no",
+    "budget": "20-25k",
+    "phoneNumber": "9955542241",
+    "conversationTranscript": [
+      {
+        "role": "user",
+        "text": "I have to buy a insurence"
+      },
+      {
+        "role": "agent",
+        "text": "Nice to meet you, I.\nHow can I help you today?"
+      },
+      {
+        "role": "user",
+        "text": "आई हैव टू बाय ए इंश्योरेंस"
+      },
+      {
+        "role": "agent",
+        "text": "May I know your age?"
+      },
+      {
+        "role": "user",
+        "text": "m19"
+      },
+      {
+        "role": "agent",
+        "text": "Which city are you from?"
+      },
+      {
+        "role": "user",
+        "text": "आई एम फ्रॉम रांची झारखंड"
+      },
+      {
+        "role": "agent",
+        "text": "Approximately what is your monthly budget?"
+      },
+      {
+        "role": "user",
+        "text": "20-25k"
+      },
+      {
+        "role": "agent",
+        "text": "Do you already have any insurance?"
+      },
+      {
+        "role": "user",
+        "text": "no"
+      },
+      {
+        "role": "agent",
+        "text": "Could you please share your mobile number so our advisor can prepare the best plan?"
+      },
+      {
+        "role": "user",
+        "text": "9955542241"
+      },
+      {
+        "role": "agent",
+        "text": "Name: I have to buy a insurence\nCity: आई एम फ्रॉम रांची झारखंड\nAge: m19\nRequirement: आई हैव टू बाय ए इंश्योरेंस\nBudget: 20-25k\nPhone Number: 9955542241\n\nIs everything correct?"
+      },
+      {
+        "role": "user",
+        "text": "yes"
+      }
+    ],
+    "createdAt": "2026-07-02T08:29:50.773Z"
+  },
+  {
+    "_id": "local_1782981432796",
+    "name": "aditya",
+    "city": "I am from Ranchi Jharkhand",
+    "requirement": "Req: I have to buy an insurance for my family | Age: I am 25 | Ins: yes I have health insurance | Lang: English",
+    "budget": "25000 to 30000",
+    "phoneNumber": "9955542241",
+    "conversationTranscript": [
+      {
+        "role": "user",
+        "text": "English"
+      },
+      {
+        "role": "agent",
+        "text": "Hello! I'm Aradhya AI from Aradhya Life Solutions. I'll help you find the right insurance plan. May I know your name?"
+      },
+      {
+        "role": "user",
+        "text": "I am Aditya"
+      },
+      {
+        "role": "agent",
+        "text": "Nice to meet you, aditya.\nHow can I help you today?"
+      },
+      {
+        "role": "user",
+        "text": "I have to buy an insurance for my family"
+      },
+      {
+        "role": "agent",
+        "text": "May I know your age?"
+      },
+      {
+        "role": "user",
+        "text": "I am 25"
+      },
+      {
+        "role": "agent",
+        "text": "Which city are you from?"
+      },
+      {
+        "role": "user",
+        "text": "I am from Ranchi Jharkhand"
+      },
+      {
+        "role": "agent",
+        "text": "Approximately what is your monthly budget?"
+      },
+      {
+        "role": "user",
+        "text": "25000 to 30000"
+      },
+      {
+        "role": "agent",
+        "text": "Do you already have any insurance?"
+      },
+      {
+        "role": "user",
+        "text": "yes I have health insurance"
+      },
+      {
+        "role": "agent",
+        "text": "Could you please share your mobile number so our advisor can prepare the best plan?"
+      },
+      {
+        "role": "user",
+        "text": "9955 542241"
+      },
+      {
+        "role": "agent",
+        "text": "Name: aditya\nCity: I am from Ranchi Jharkhand\nAge: I am 25\nRequirement: I have to buy an insurance for my family\nBudget: 25000 to 30000\nPhone Number: 9955542241\n\nIs everything correct?"
+      },
+      {
+        "role": "user",
+        "text": "yes"
+      }
+    ],
+    "createdAt": "2026-07-02T08:37:12.796Z"
+  }
+]

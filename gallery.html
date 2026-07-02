@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Aradhya Life Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .gallery-hero {
+            padding: 150px 20px 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            text-align: center;
+        }
+        .gallery-container {
+            max-width: 1200px;
+            margin: -60px auto 100px;
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+        .gallery-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            height: 300px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 30px 20px 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        .gallery-overlay h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .gallery-overlay p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- AI Voice Agent Sticky Button -->
+    <div class="ai-sticky" style="position: fixed; bottom: 30px; left: 30px; z-index: 999;">
+        <a href="/ai" class="btn" style="background: linear-gradient(135deg, #E11D48, #9333ea); color: white; border-radius: 50px; padding: 15px 25px; box-shadow: 0 10px 25px rgba(225, 29, 72, 0.4); display: flex; align-items: center; gap: 10px; font-weight: bold; text-decoration: none; animation: pulse 2s infinite;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            </svg>
+            Talk to AI Agent
+        </a>
+    </div>
+    
+    <style>
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(225, 29, 72, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+        }
+        .ai-sticky a:hover { transform: translateY(-5px) scale(1.05); }
+    </style>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Aradhya <span>Life Solutions</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="tel:+918409533045" class="btn btn-primary nav-cta">Book Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="gallery-hero">
+        <div class="container">
+            <h1 class="section-title">Our <span class="text-accent">Gallery</span></h1>
+            <p>A glimpse into our success stories, team moments, and professional journey.</p>
+        </div>
+    </header>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-container">
+
+
+        <!-- Gallery Item 7 -->
+        <div class="gallery-item">
+            <img src="event_photo_1.png" alt="Team Event Celebration">
+            <div class="gallery-overlay">
+                <h3>Team Event</h3>
+                <p>Celebrating success together</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 8 -->
+        <div class="gallery-item">
+            <img src="event_photo_2.png" alt="Team Awards">
+            <div class="gallery-overlay">
+                <h3>Team Awards</h3>
+                <p>Recognizing top performers</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 9 -->
+        <div class="gallery-item">
+            <img src="event_photo_3.jpg" alt="Awards Distribution">
+            <div class="gallery-overlay">
+                <h3>Awards Distribution</h3>
+                <p>Honoring dedication and hard work</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 10 -->
+        <div class="gallery-item">
+            <img src="event_photo_4.png" alt="Team Achievement">
+            <div class="gallery-overlay">
+                <h3>Team Achievement</h3>
+                <p>A moment of pride for the team</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 11 -->
+        <div class="gallery-item">
+            <img src="event_photo_5.png" alt="Celebrating Excellence">
+            <div class="gallery-overlay">
+                <h3>Celebrating Excellence</h3>
+                <p>Recognizing our top advisors</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 12 -->
+        <div class="gallery-item">
+            <img src="event_photo_6.png" alt="More Event Highlights">
+            <div class="gallery-overlay">
+                <h3>More Event Highlights</h3>
+                <p>Enjoying success together</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 13 -->
+        <div class="gallery-item">
+            <img src="event_photo_7.png" alt="Team Support">
+            <div class="gallery-overlay">
+                <h3>Team Support</h3>
+                <p>Standing strong as one</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 14 -->
+        <div class="gallery-item">
+            <img src="event_photo_8.png" alt="Event Honors">
+            <div class="gallery-overlay">
+                <h3>Event Honors</h3>
+                <p>Prestigious awards ceremony</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 15 -->
+        <div class="gallery-item">
+            <img src="event_photo_9.png" alt="Winning Moments">
+            <div class="gallery-overlay">
+                <h3>Winning Moments</h3>
+                <p>A memorable day for the team</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 16 -->
+        <div class="gallery-item">
+            <img src="event_photo_10.png" alt="Group Recognition">
+            <div class="gallery-overlay">
+                <h3>Group Recognition</h3>
+                <p>Acknowledging hard work</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 17 -->
+        <div class="gallery-item">
+            <img src="event_photo_11.png" alt="Grand Celebration">
+            <div class="gallery-overlay">
+                <h3>Grand Celebration</h3>
+                <p>Team milestones and joy</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 18 -->
+        <div class="gallery-item">
+            <img src="event_photo_12.png" alt="Award Ceremony">
+            <div class="gallery-overlay">
+                <h3>Award Ceremony</h3>
+                <p>Recognizing outstanding efforts</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 19 -->
+        <div class="gallery-item">
+            <img src="event_photo_13.png" alt="Smiles of Success">
+            <div class="gallery-overlay">
+                <h3>Smiles of Success</h3>
+                <p>A triumphant team moment</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 20 -->
+        <div class="gallery-item">
+            <img src="event_photo_14.png" alt="Team Synergy Highlights">
+            <div class="gallery-overlay">
+                <h3>Team Synergy Highlights</h3>
+                <p>Together we achieve more</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 21 -->
+        <div class="gallery-item">
+            <img src="event_photo_15.png" alt="Glorious Moments">
+            <div class="gallery-overlay">
+                <h3>Glorious Moments</h3>
+                <p>Celebrating excellence in action</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 22 -->
+        <div class="gallery-item">
+            <img src="event_photo_16.png" alt="Team Recognition">
+            <div class="gallery-overlay">
+                <h3>Team Recognition</h3>
+                <p>Honoring outstanding achievements</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 23 -->
+        <div class="gallery-item">
+            <img src="event_photo_17.jpg" alt="Certification">
+            <div class="gallery-overlay">
+                <h3>Certification</h3>
+                <p>Awarding professional excellence</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 24 -->
+        <div class="gallery-item">
+            <img src="event_photo_18.jpg" alt="Proud Certificate Winner">
+            <div class="gallery-overlay">
+                <h3>Proud Achievement</h3>
+                <p>Receiving well-deserved recognition</p>
+            </div>
+        </div>
+
+        <!-- Gallery Item 25 -->
+        <div class="gallery-item">
+            <img src="event_photo_19.jpg" alt="Group Excellence">
+            <div class="gallery-overlay">
+                <h3>Group Excellence</h3>
+                <p>Celebrating milestones together</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo footer-logo">Aradhya <span>Life Solutions</span></div>
+                    <p style="color: var(--text-muted); max-width: 400px;">Providing transparent, expert insurance guidance for individuals and families since 2019.</p>
+                </div>
+            </div>
+            <div class="footer-bottom" style="text-align: center; margin-top: 40px;">
+                <p>&copy; 2026 Aradhya Life Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
