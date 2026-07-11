@@ -25,33 +25,41 @@ export default function AIAssistant() {
   const synthRef = useRef<SpeechSynthesis | null>(null);
 
   useEffect(() => {
-    // Initialize Web Speech API ONLY ONCE
-    if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-      recognitionRef.current = new SpeechRecognition();
-      recognitionRef.current.continuous = false;
-      recognitionRef.current.lang = 'en-IN'; // English + Hinglish support
-      
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      recognitionRef.current.onresult = (event: any) => {
-        const text = event.results[0][0].transcript;
-        setTranscript(prev => [...prev, { role: 'user', text }]);
-        if (socketRef.current) {
-          socketRef.current.emit('user_message', { text });
-        }
-      };
+    // Initialize Web Speech API ONLY ONCE safely
+    try {
+      if (typeof window !== 'undefined' && ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+        recognitionRef.current = new SpeechRecognition();
+        recognitionRef.current.continuous = false;
+        recognitionRef.current.lang = 'en-IN'; // English + Hinglish support
+        
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        recognitionRef.current.onresult = (event: any) => {
+          const text = event.results[0][0].transcript;
+          setTranscript(prev => [...prev, { role: 'user', text }]);
+          if (socketRef.current) {
+            socketRef.current.emit('user_message', { text });
+          }
+        };
 
-      recognitionRef.current.onend = () => {
-        if (isCallingRef.current && !isSpeakingRef.current) {
-          try { recognitionRef.current.start(); } catch { /* ignore error */ }
-        }
-      };
+        recognitionRef.current.onend = () => {
+          if (isCallingRef.current && !isSpeakingRef.current) {
+            try { recognitionRef.current.start(); } catch { /* ignore error */ }
+          }
+        };
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      recognitionRef.current.onerror = (event: any) => {
-        console.error("Speech recognition error", event.error);
-      };
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        recognitionRef.current.onerror = (event: any) => {
+          console.error("Speech recognition error", event.error);
+          // If not allowed (e.g. HTTP on mobile), fail gracefully
+          if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+             console.warn("Microphone access denied. User must use text input.");
+          }
+        };
+      }
+    } catch (err) {
+      console.warn("Speech Recognition is not fully supported on this device/browser.", err);
     }
     synthRef.current = window.speechSynthesis;
   }, []); // Run only once
@@ -60,10 +68,15 @@ export default function AIAssistant() {
     setIsCalling(true);
     isCallingRef.current = true;
     setTranscript([]);
-    
+    // Dynamic IP detection for local network testing on mobile
+    let defaultBackendUrl = 'http://localhost:5000';
+    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost') {
+      defaultBackendUrl = `http://${window.location.hostname}:5000`;
+    }
+
     // Connect to Node.js backend (Dynamic for Production)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const BACKEND_URL = (typeof window !== 'undefined' && (window as any).BACKEND_URL) || process.env.NEXT_PUBLIC_AI_BACKEND_URL || 'http://localhost:5000';
+    const BACKEND_URL = (typeof window !== 'undefined' && (window as any).BACKEND_URL) || process.env.NEXT_PUBLIC_AI_BACKEND_URL || defaultBackendUrl;
     const newSocket = io(BACKEND_URL);
     setSocket(newSocket);
     socketRef.current = newSocket;
@@ -72,6 +85,12 @@ export default function AIAssistant() {
       setTranscript(prev => [...prev, { role: 'agent', text: data.text }]);
       speakText(data.text, data.endCall);
     });
+
+    // Request microphone permission and unlock audio immediately when call starts (required for Mobile)
+    if (synthRef.current) {
+      const unlockUtterance = new SpeechSynthesisUtterance('');
+      synthRef.current.speak(unlockUtterance);
+    }
 
     // Request microphone permission immediately when call starts
     if (recognitionRef.current) {

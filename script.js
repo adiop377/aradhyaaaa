@@ -320,36 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Security: Prevent Code Inspection
-    // Disclaimer: DevTools can't be 100% blocked, but these layers deter most users.
-
-    // 1. Disable Right Click
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
-
-    // 2. Disable Keyboard Shortcuts (F12, Ctrl+Shift+I, Ctrl+U, etc.)
-    document.onkeydown = (e) => {
-        if (
-            e.keyCode === 123 || // F12
-            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) || // Ctrl+Shift+I/J/C
-            (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83)) // Ctrl+U/S
-        ) {
-            e.preventDefault();
-            return false;
-        }
-    };
-
-    // 3. Debugger Loop (Interrupts inspector if it manages to open)
-    // Note: Use with caution as it can slightly affect performance in some browsers.
-    function protect() {
-        setInterval(() => {
-            (function() {
-                return false;
-            }
-            ['constructor']('debugger')
-            ['call']());
-        }, 50);
-    }
-    
-    // Uncomment the line below to enable the debugger bomb
-    // protect();
+    // Security: Prevent Code Inspection (REMOVED)
+    // Anti-inspection scripts like preventing contextmenu ruin mobile UX (e.g. long press).
+    // They have been disabled to ensure full cross-device compatibility.
 });
