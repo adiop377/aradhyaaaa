@@ -69,15 +69,22 @@ export default function AIAssistant() {
     isCallingRef.current = true;
     setTranscript([]);
     // Dynamic IP detection for local network testing on mobile
-    let defaultBackendUrl = 'http://localhost:5000';
-    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost') {
-      defaultBackendUrl = `http://${window.location.hostname}:5000`;
+    let defaultBackendUrl = 'https://seven-cows-clean.loca.lt'; // Temporary secure tunnel for mobile testing
+    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== 'aradhya.vercel.app') {
+      defaultBackendUrl = `https://seven-cows-clean.loca.lt`;
     }
 
     // Connect to Node.js backend (Dynamic for Production)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const BACKEND_URL = (typeof window !== 'undefined' && (window as any).BACKEND_URL) || process.env.NEXT_PUBLIC_AI_BACKEND_URL || defaultBackendUrl;
-    const newSocket = io(BACKEND_URL);
+    
+    // extraHeaders bypasses the localtunnel warning page so WebSockets work immediately
+    const newSocket = io(BACKEND_URL, {
+      extraHeaders: {
+        "Bypass-Tunnel-Reminder": "true"
+      }
+    });
+    
     setSocket(newSocket);
     socketRef.current = newSocket;
 
