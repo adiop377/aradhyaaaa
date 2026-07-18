@@ -68,15 +68,10 @@ export default function AIAssistant() {
     setIsCalling(true);
     isCallingRef.current = true;
     setTranscript([]);
-    // Dynamic IP detection for local network testing on mobile
-    let defaultBackendUrl = 'https://aradhyaaaa.onrender.com'; // Production backend URL
-    if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
-      defaultBackendUrl = `http://localhost:5000`;
-    }
-
-    // Connect to Node.js backend (Dynamic for Production)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const BACKEND_URL = (typeof window !== 'undefined' && (window as any).BACKEND_URL) || process.env.NEXT_PUBLIC_AI_BACKEND_URL || defaultBackendUrl;
+    // Connect to Node.js backend
+    const BACKEND_URL = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+      ? 'http://localhost:5000' 
+      : 'https://aradhyaaaa.onrender.com';
     
     // extraHeaders bypasses the localtunnel warning page so WebSockets work immediately
     const newSocket = io(BACKEND_URL, {
