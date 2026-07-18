@@ -69,9 +69,9 @@ export default function AIAssistant() {
     isCallingRef.current = true;
     setTranscript([]);
     // Dynamic IP detection for local network testing on mobile
-    let defaultBackendUrl = 'https://seven-cows-clean.loca.lt'; // Temporary secure tunnel for mobile testing
-    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== 'aradhya.vercel.app') {
-      defaultBackendUrl = `https://seven-cows-clean.loca.lt`;
+    let defaultBackendUrl = 'https://aradhyaaaa.onrender.com'; // Production backend URL
+    if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+      defaultBackendUrl = `http://localhost:5000`;
     }
 
     // Connect to Node.js backend (Dynamic for Production)
