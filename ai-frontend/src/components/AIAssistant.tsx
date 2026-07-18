@@ -69,16 +69,12 @@ export default function AIAssistant() {
     isCallingRef.current = true;
     setTranscript([]);
     // Connect to Node.js backend
+    // Connect to Node.js backend
     const BACKEND_URL = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
       ? 'http://localhost:5000' 
       : 'https://aradhyaaaa.onrender.com';
     
-    // extraHeaders bypasses the localtunnel warning page so WebSockets work immediately
-    const newSocket = io(BACKEND_URL, {
-      extraHeaders: {
-        "Bypass-Tunnel-Reminder": "true"
-      }
-    });
+    const newSocket = io(BACKEND_URL);
     
     setSocket(newSocket);
     socketRef.current = newSocket;
