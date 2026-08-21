@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details | Aradhya Life Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .service-details-container {
+            padding: 150px 20px 100px;
+            max-width: 900px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+        .service-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .service-icon-large {
+            width: 100px;
+            height: 100px;
+            background: rgba(225, 29, 72, 0.1);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .service-icon-large i {
+            width: 50px;
+            height: 50px;
+        }
+        .service-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .service-content {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .back-btn:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Aradhya <span>Life Solutions</span></a>
+            <a href="index.html" class="btn btn-outline" style="padding: 8px 15px; font-size: 0.8rem;">Back Home</a>
+        </div>
+    </nav>
+
+    <main class="service-details-container">
+        <a href="index.html" class="back-btn"><i data-lucide="arrow-left"></i> Back to Services</a>
+        
+        <div id="service-content-area" style="display: none;">
+            <div class="service-header">
+                <div class="service-icon-large" id="s-icon">
+                    <!-- Icon gets injected here -->
+                </div>
+                <h1 class="service-title" id="s-title">Service Title</h1>
+            </div>
+            
+            <div class="service-content" id="s-desc">
+                <!-- Description injected here -->
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="tel:+918409533045" class="btn btn-primary">Contact Us to Learn More</a>
+            </div>
+        </div>
+
+        <div id="error-area" style="display: none; text-align: center; padding: 100px 0;">
+            <h2>Service not found</h2>
+            <p>The service you are looking for does not exist or has been removed.</p>
+        </div>
+    </main>
+
+    <script>
+        const servicesData = {
+            "personal-consultation": {
+                title: "Personal Consultation",
+                icon: "user-check",
+                desc: `<h3>What is Personal Financial Consultation?</h3><p>Personal Financial Consultation is a one-on-one advisory service designed to understand an individual's complete financial situation, goals, priorities, and future requirements.</p><p>Every individual has different financial responsibilities and objectives. A personalized consultation helps identify those requirements and develop a financial approach that is aligned with the individual's needs, risk profile, and long-term goals.</p><h3>What Does the Consultation Cover?</h3><ul><li><strong>Understanding Your Financial Situation:</strong> We review your income, expenses, savings, investments, liabilities, insurance coverage, and existing financial commitments.</li><li><strong>Understanding Your Goals:</strong> We identify your short-term and long-term objectives, such as buying a home, children's education, retirement, wealth creation, or financial security.</li><li><strong>Risk Profile Assessment:</strong> We evaluate your financial risk tolerance and understand how much investment and financial risk may be appropriate for your situation.</li><li><strong>Protection Planning:</strong> We identify potential financial vulnerabilities and determine whether adequate insurance and protection measures are in place.</li><li><strong>Investment & Wealth Planning:</strong> We help you understand suitable investment approaches based on your goals, time horizon, and risk profile.</li><li><strong>Financial Roadmap:</strong> We help organize your financial priorities into a structured roadmap that can be reviewed and adjusted as your circumstances change.</li></ul><h3>Who Can Benefit?</h3><ul><li>Salaried professionals</li><li>Business owners</li><li>Self-employed individuals</li><li>Young investors</li><li>Parents planning for their children's future</li><li>Individuals approaching retirement</li><li>Families looking to organize their finances</li></ul><h3>Key Benefits</h3><ul><li>Personalized financial guidance</li><li>Better understanding of your financial position</li><li>Goal-based financial planning</li><li>Improved risk awareness</li><li>Structured investment planning</li><li>Better financial decision-making</li><li>Long-term financial clarity</li></ul><h3>Your Goals. Your Finances. Your Plan.</h3><p>Our Personal Financial Consultation service provides one-on-one guidance designed around your unique financial situation, priorities, risk profile, and long-term aspirations. We help you make informed financial decisions with greater clarity and confidence.</p>`
+            },
+            "family-financial-planning": {
+                title: "Family Financial Planning",
+                icon: "users",
+                desc: `<h3>What is Family Financial Planning?</h3><p>Family Financial Planning is a comprehensive approach to managing and protecting a family's financial future.</p><p>It focuses on understanding the family's current financial position, protecting dependents, planning for major life goals, managing financial risks, and building long-term financial stability.</p><p>The objective is to ensure that your family's financial needs remain protected today while preparing for tomorrow.</p><h3>What Does Family Financial Planning Cover?</h3><ul><li><strong>Family Protection Planning:</strong> Ensures that adequate financial protection is considered for family members and dependents.</li><li><strong>Children's Education Planning:</strong> Helps parents prepare financially for future education expenses and other important milestones.</li><li><strong>Marriage & Major Life Goals:</strong> Helps families plan for significant future expenses and financial commitments.</li><li><strong>Insurance Planning:</strong> Reviews life, health, and other relevant insurance requirements to identify potential protection gaps.</li><li><strong>Investment Planning:</strong> Helps align investments with specific family goals, investment horizons, and risk profiles.</li><li><strong>Emergency Fund Planning:</strong> Helps families prepare for unexpected expenses and financial emergencies.</li><li><strong>Retirement Planning:</strong> Helps parents and earning members prepare financially for life after retirement.</li><li><strong>Wealth & Legacy Planning:</strong> Helps families organize long-term wealth creation and succession considerations.</li></ul><h3>Who Can Benefit?</h3><ul><li>Young families</li><li>Parents</li><li>Working couples</li><li>Business families</li><li>High-income households</li><li>Families with multiple financial goals</li><li>Individuals supporting dependent family members</li></ul><h3>Key Benefits</h3><ul><li>Greater family financial security</li><li>Protection against unexpected financial situations</li><li>Structured planning for children's future</li><li>Better management of financial goals</li><li>Retirement preparedness</li><li>Long-term wealth planning</li><li>Improved financial confidence</li></ul><h3>A Secure Financial Future for the People You Love</h3><p>Our Family Financial Planning service brings together protection, savings, investments, retirement planning, and long-term financial goals to create a comprehensive strategy for your family's future.</p>`
+            },
+            "risk-assessment": {
+                title: "Risk Assessment",
+                icon: "shield-alert",
+                desc: `<h3>What is Financial Risk Assessment?</h3><p>Financial Risk Assessment is the process of identifying and evaluating potential financial risks that could affect an individual, family, or business.</p><p>Unexpected events such as loss of income, medical emergencies, major liabilities, market volatility, or inadequate insurance protection can have a significant impact on financial stability.</p><p>A proper risk assessment helps identify these vulnerabilities and determine where additional financial protection or planning may be required.</p><h3>What Does the Assessment Include?</h3><ul><li><strong>Income Risk:</strong> Evaluates the potential financial impact of losing or reducing a primary source of income.</li><li><strong>Life Risk:</strong> Assesses whether dependents would have adequate financial support in the event of the death of an earning member.</li><li><strong>Health Risk:</strong> Reviews potential healthcare-related financial exposure and existing health insurance protection.</li><li><strong>Liability Assessment:</strong> Examines outstanding loans, debts, and other financial obligations.</li><li><strong>Investment Risk:</strong> Evaluates whether an investment portfolio is appropriately aligned with the individual's risk profile and financial objectives.</li><li><strong>Insurance Gap Analysis:</strong> Reviews existing insurance coverage to identify potential protection gaps.</li><li><strong>Emergency Preparedness:</strong> Evaluates whether adequate financial reserves are available to handle unexpected expenses.</li></ul><h3>Risk Assessment Process</h3><ol><li><strong>Step 1 — Identify:</strong> Identify potential financial risks and vulnerabilities.</li><li><strong>Step 2 — Evaluate:</strong> Assess the potential impact of each risk on your financial situation.</li><li><strong>Step 3 — Prioritize:</strong> Determine which risks require immediate attention.</li><li><strong>Step 4 — Plan:</strong> Develop appropriate strategies to reduce or manage identified risks.</li><li><strong>Step 5 — Review:</strong> Periodically review your financial risk profile as your circumstances change.</li></ol><h3>Who Can Benefit?</h3><ul><li>Individuals</li><li>Families</li><li>Business owners</li><li>Professionals</li><li>Investors</li><li>People with financial dependents</li><li>Individuals with significant liabilities</li></ul><h3>Key Benefits</h3><ul><li>Identify financial vulnerabilities</li><li>Understand protection gaps</li><li>Improve financial preparedness</li><li>Protect income and assets</li><li>Make informed insurance decisions</li><li>Reduce the potential impact of unexpected events</li></ul><h3>Know Your Risks. Strengthen Your Financial Protection.</h3><p>Our Financial Risk Assessment helps identify potential vulnerabilities across your income, health, liabilities, investments, and insurance coverage, helping you stay better prepared for life's uncertainties.</p>`
+            },
+            "claim-support": {
+                title: "Claim Support",
+                icon: "help-circle",
+                desc: `<h3>What is Claim Support?</h3><p>Claim Support is a dedicated assistance service designed to help customers navigate the insurance claim process.</p><p>Filing a claim can be stressful, especially during difficult circumstances. Professional guidance can help customers better understand the required documentation, procedures, and next steps involved in submitting and following up on a claim.</p><h3>How Does Claim Support Work?</h3><ul><li><strong>Understanding the Claim Process:</strong> We help explain the general claim process and the steps involved based on the relevant policy and insurer requirements.</li><li><strong>Documentation Guidance:</strong> We help customers understand the documents and information that may be required for claim submission.</li><li><strong>Claim Submission Assistance:</strong> We provide guidance on the submission process and help customers understand what needs to be completed.</li><li><strong>Follow-Up Support:</strong> We assist with understanding the status of the claim and the next steps communicated by the insurer.</li><li><strong>Query Assistance:</strong> We help customers understand claim-related queries and communicate relevant information.</li><li><strong>Settlement Guidance:</strong> We help customers understand the claim settlement process and the documentation or communication involved.</li></ul><p><strong>Important:</strong> Claim approval and settlement are subject to the terms, conditions, exclusions, and assessment of the respective insurance policy and insurer.</p><h3>Who Can Benefit?</h3><ul><li>Life insurance policyholders</li><li>Health insurance policyholders</li><li>General insurance customers</li><li>Families handling claims</li><li>Nominees and beneficiaries</li><li>Individuals requiring assistance with claim procedures</li></ul><h3>Key Benefits</h3><ul><li>Guidance throughout the claim process</li><li>Better understanding of documentation requirements</li><li>Assistance with claim-related procedures</li><li>Follow-up guidance</li><li>Reduced confusion during stressful situations</li><li>Greater confidence while navigating the process</li></ul><h3>Support When You Need It Most</h3><p>We provide dedicated guidance throughout the insurance claim process, helping you understand documentation, procedures, follow-ups, and the next steps with greater clarity and confidence during challenging times.</p>`
+            },
+            "life-insurance": {
+                title: "Life Insurance",
+                icon: "heart",
+                desc: `<h3>What is Life Insurance?</h3><p>Life Insurance is a financial protection solution designed to provide financial security to your loved ones in the event of the policyholder's death. Its primary purpose is to protect your family's financial future, replace lost income, manage liabilities, and support important long-term financial goals.</p><h3>Types of Life Insurance</h3><ul><li><strong>Term Insurance:</strong> Provides life protection for a specific period. If the policyholder passes away during the policy term, the nominee receives the applicable death benefit as per the policy terms.</li><li><strong>Savings Plans:</strong> Combine life insurance protection with savings and are designed to help individuals work towards long-term financial goals.</li><li><strong>ULIP – Unit Linked Insurance Plans:</strong> Combine life insurance protection with market-linked investment opportunities. A portion of the premium is allocated towards insurance protection, while another portion is invested in selected funds.</li><li><strong>Child & Future Planning Plans:</strong> Designed to help parents plan financially for important milestones such as their child's education, marriage, and future needs.</li><li><strong>Whole Life Insurance:</strong> Provides long-term life protection, subject to the terms and conditions of the policy.</li></ul><h3>Who Can Benefit from Life Insurance?</h3><ul><li>Families seeking financial security</li><li>Individuals with financial dependents</li><li>People with outstanding loans or liabilities</li><li>Parents planning for their children's future</li><li>Individuals planning for long-term financial goals</li><li>Individuals looking to create a financial legacy</li></ul><h3>Key Benefits</h3><ul><li>Financial protection for your family</li><li>Income replacement support</li><li>Protection against financial liabilities</li><li>Support for long-term financial goals</li><li>Flexible insurance solutions</li><li>Potential tax benefits as per applicable tax laws</li></ul><h3>Protect What Matters Most</h3><p>Life Insurance helps you build a financial safety net for your loved ones while supporting important milestones and long-term financial goals. Choose protection and planning solutions designed around your family's needs.</p>`
+            },
+            "general-insurance": {
+                title: "General Insurance",
+                icon: "shield",
+                desc: `<h3>What is General Insurance?</h3><p>General Insurance provides financial protection against various risks other than life-related risks. It can help protect your vehicles, property, travel plans, business interests, and other valuable assets against covered events.</p><h3>Major General Insurance Solutions</h3><ul><li><strong>Motor Insurance:</strong> Provides financial protection for cars, two-wheelers, and other eligible vehicles against covered risks.</li><li><strong>Travel Insurance:</strong> Provides protection against eligible travel-related risks, including certain medical emergencies and trip-related situations.</li><li><strong>Property Insurance:</strong> Helps protect homes, offices, commercial properties, and other eligible assets against covered risks.</li><li><strong>Business Insurance:</strong> Helps businesses manage financial losses arising from various covered operational and business risks.</li></ul><h3>Key Benefits</h3><ul><li>Vehicle protection</li><li>Travel protection</li><li>Property protection</li><li>Business risk protection</li><li>Financial support against covered unexpected losses</li><li>Protection of valuable assets</li></ul><h3>Protection Beyond Life</h3><p>General Insurance solutions help protect your vehicle, property, travel plans, and business against a range of unexpected risks, helping you stay financially prepared for the uncertainties of life.</p>`
+            },
+            "health-insurance": {
+                title: "Health Insurance",
+                icon: "activity",
+                desc: `<h3>What is Health Insurance?</h3><p>Health Insurance is a financial protection solution designed to help cover eligible medical and hospitalization expenses according to the terms and conditions of the policy. It can help reduce the financial burden of unexpected healthcare costs and protect your savings.</p><h3>Types of Health Insurance</h3><ul><li><strong>Individual Health Insurance:</strong> Provides health coverage for an individual based on the selected policy and coverage terms.</li><li><strong>Family Floater Health Insurance:</strong> Provides coverage to multiple eligible family members under a single policy, subject to the policy terms.</li><li><strong>Senior Citizen Health Insurance:</strong> Designed to address the healthcare and financial protection needs of senior citizens.</li><li><strong>Critical Illness Insurance:</strong> Provides a specified benefit upon diagnosis of covered critical illnesses, subject to the policy terms and conditions.</li><li><strong>Top-Up & Super Top-Up Plans:</strong> Can provide additional health coverage over and above an existing health insurance policy, subject to applicable conditions.</li></ul><h3>Who Can Benefit?</h3><ul><li>Individuals</li><li>Families</li><li>Senior citizens</li><li>People seeking protection against rising healthcare costs</li><li>Individuals looking for critical illness protection</li></ul><h3>Key Benefits</h3><ul><li>Financial protection against eligible medical expenses</li><li>Hospitalization coverage as per policy terms</li><li>Family coverage options</li><li>Critical illness protection options</li><li>Cashless treatment facilities, where applicable</li><li>Potential tax benefits under applicable tax laws</li></ul><h3>Health Protection for a More Secure Tomorrow</h3><p>Medical emergencies can create unexpected financial pressure. Health Insurance helps protect you and your family against eligible healthcare expenses and provides greater financial confidence when you need it most.</p>`
+            },
+            "mutual-funds": {
+                title: "Mutual Funds",
+                icon: "trending-up",
+                desc: `<h3>What are Mutual Funds?</h3><p>A Mutual Fund pools money from multiple investors and invests it in a professionally managed portfolio of securities based on the fund's investment objective.</p><p>Mutual Funds can provide investors with access to different asset classes and investment strategies based on their financial goals, risk appetite, and investment horizon.</p><h3>Major Types of Mutual Funds</h3><ul><li><strong>Equity Funds:</strong> Primarily invest in equity and equity-related securities and are generally suitable for investors seeking long-term growth potential.</li><li><strong>Debt Funds:</strong> Primarily invest in fixed-income and debt securities.</li><li><strong>Hybrid Funds:</strong> Invest across a combination of equity and debt instruments.</li><li><strong>Index Funds:</strong> Aim to track the performance of a specific market index.</li></ul><h3>Investment Options</h3><ul><li><strong>SIP – Systematic Investment Plan:</strong> Allows investors to invest a fixed amount at regular intervals.</li><li><strong>Lump-Sum Investment:</strong> Allows investors to make a one-time investment.</li></ul><h3>Mutual Funds Can Help With</h3><ul><li>Long-term wealth creation</li><li>Retirement planning</li><li>Children's education</li><li>Financial goal planning</li><li>Wealth accumulation</li><li>Portfolio diversification</li></ul><p><strong>Important:</strong> Mutual Fund investments are subject to market risks, and returns are not guaranteed.</p><h3>Invest Today. Build Tomorrow.</h3><p>Mutual Funds provide access to professionally managed investment portfolios across different asset classes, helping investors work towards their long-term financial goals.</p>`
+            },
+            "retirement-plan": {
+                title: "Retirement Plan",
+                icon: "piggy-bank",
+                desc: `<h3>What is Retirement Planning?</h3><p>Retirement Planning is the process of systematically building financial resources during your working years to help maintain financial independence and support your desired lifestyle after retirement.</p><h3>What Does Retirement Planning Consider?</h3><p>A comprehensive retirement plan may consider:</p><ul><li>Current age</li><li>Expected retirement age</li><li>Current expenses</li><li>Inflation</li><li>Existing investments</li><li>Expected retirement income</li><li>Desired retirement lifestyle</li><li>Required retirement corpus</li><li>Life expectancy</li></ul><h3>Retirement Planning Solutions</h3><ul><li>Pension plans</li><li>Annuity solutions</li><li>Retirement-focused investments</li><li>Systematic investments</li><li>Long-term savings solutions</li></ul><h3>Key Benefits</h3><ul><li><strong>Financial Independence:</strong> Helps you prepare for your financial needs after retirement.</li><li><strong>Inflation-Aware Planning:</strong> Helps account for the potential increase in future living expenses.</li><li><strong>Goal-Based Planning:</strong> Helps determine the retirement corpus required to support your desired lifestyle.</li></ul><h3>Plan Today for the Life You Want Tomorrow</h3><p>A well-designed retirement plan can help you build the financial resources needed to maintain your lifestyle, meet future expenses, and pursue your goals after retirement.</p>`
+            },
+            "legacy-and-wealth": {
+                title: "Legacy And Wealth",
+                icon: "landmark",
+                desc: `<h3>What is Legacy & Wealth Planning?</h3><p>Legacy & Wealth Planning focuses on creating, protecting, managing, and transferring wealth in a structured manner. It helps individuals and families plan for their financial future while ensuring that their wealth can be passed on to future generations according to their wishes and applicable laws.</p><h3>Wealth Planning</h3><ul><li>Wealth creation</li><li>Asset allocation</li><li>Investment planning</li><li>Risk management</li><li>Goal-based investing</li><li>Portfolio management</li></ul><h3>Legacy Planning</h3><ul><li>Wealth succession planning</li><li>Estate planning</li><li>Nomination planning</li><li>Wealth transfer</li><li>Intergenerational financial planning</li><li>Business succession planning</li></ul><h3>Who Can Benefit?</h3><ul><li>High-net-worth individuals</li><li>Business owners</li><li>Professionals</li><li>Families with significant assets</li><li>Individuals planning wealth succession</li><li>People looking to create a long-term financial legacy</li></ul><h3>Build Wealth. Protect It. Pass It Forward.</h3><p>Legacy & Wealth Planning focuses on creating, protecting, and efficiently transferring wealth so that your financial legacy can continue across generations.</p>`
+            },
+            "investment-advisory": {
+                title: "Investment Advisory",
+                icon: "bar-chart-2",
+                desc: `<h3>What is Investment Advisory?</h3><p>Investment Advisory is a personalized approach to financial planning and investing. It involves understanding an individual's financial goals, risk profile, investment horizon, and overall financial situation to develop an appropriate investment strategy.</p><h3>Our Advisory Approach</h3><ol><li><strong>Understand:</strong> We understand your financial goals, priorities, income, expenses, and investment objectives.</li><li><strong>Assess:</strong> We evaluate your risk profile, investment horizon, and financial requirements.</li><li><strong>Strategize:</strong> We develop an investment strategy and asset allocation approach aligned with your objectives.</li><li><strong>Implement:</strong> The recommended investment strategy can then be implemented according to the agreed approach.</li><li><strong>Review:</strong> Your investment strategy can be reviewed periodically to ensure it continues to align with your evolving financial goals.</li></ol><h3>Areas of Investment Advisory</h3><ul><li>Portfolio review</li><li>Asset allocation</li><li>Goal-based investing</li><li>Risk management</li><li>Investment strategy</li><li>Portfolio monitoring</li><li>Periodic review and rebalancing</li></ul><h3>Invest With Clarity and Confidence</h3><p>Our Investment Advisory approach focuses on understanding your goals, evaluating your risk profile, and developing an investment strategy aligned with your financial journey.</p>`
+            },
+            "corporate-planning": {
+                title: "Corporate Planning",
+                icon: "briefcase",
+                desc: `<h3>What is Corporate Planning?</h3><p>Corporate Planning helps businesses prepare for financial risks, protect key individuals, strengthen employee benefits, and plan for long-term business continuity and succession.</p><h3>Major Corporate Solutions</h3><ul><li><strong>Business Risk Planning:</strong> Helps businesses prepare for financial risks that may affect their operations and continuity.</li><li><strong>Key Person Planning:</strong> Helps address the potential financial impact of losing an important employee, business leader, or key individual.</li><li><strong>Employee Benefits Planning:</strong> Helps businesses design financial protection and benefit solutions for their employees.</li><li><strong>Group Insurance Solutions:</strong> Provides insurance solutions designed for eligible employee groups and organizations.</li><li><strong>Business Succession Planning:</strong> Helps business owners prepare for the smooth transition of ownership, management, and wealth to the next generation or future leadership.</li></ul><h3>Who Can Benefit?</h3><ul><li>Startups</li><li>Small and medium-sized businesses</li><li>Established companies</li><li>Family-owned businesses</li><li>Corporate organizations</li><li>Business owners and entrepreneurs</li></ul><h3>Protect Your Business. Plan for Its Future.</h3><p>Corporate Planning helps businesses manage financial risks, protect key people, strengthen employee benefits, and prepare for long-term continuity and succession.</p>`
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceId = urlParams.get('id');
+
+            if (serviceId && servicesData[serviceId]) {
+                const service = servicesData[serviceId];
+                
+                document.getElementById('s-title').textContent = service.title;
+                document.getElementById('s-icon').innerHTML = `<i data-lucide="${service.icon}"></i>`;
+                document.getElementById('s-desc').innerHTML = service.desc;
+                document.title = `${service.title} | Aradhya Life Solutions`;
+
+                document.getElementById('service-content-area').style.display = 'block';
+                
+                // Re-initialize lucide icons for the newly injected icon
+                lucide.createIcons();
+            } else {
+                document.getElementById('error-area').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

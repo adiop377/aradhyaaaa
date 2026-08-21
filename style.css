@@ -487,7 +487,7 @@ nav {
 
 .benefits-img {
     width: 100%;
-    height: 380px; /* Constraints for vertical space */
+    height: 450px; /* Adjusted to fit the portrait cash image better */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
