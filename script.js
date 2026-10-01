@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(contactForm);
             
             try {
-                const response = await fetch('https://formsubmit.co/ajax/aradhyalifesolutions@gmail.com', {
+                const response = await fetch('https://formsubmit.co/ajax/info@aradhyalifesolutions.in', {
                     method: 'POST',
                     body: formData,
                     headers: { 'Accept': 'application/json' }
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('_subject', 'New Team Member Application');
             
             try {
-                const response = await fetch('https://formsubmit.co/ajax/aradhyalifesolutions@gmail.com', {
+                const response = await fetch('https://formsubmit.co/ajax/info@aradhyalifesolutions.in', {
                     method: 'POST',
                     body: formData,
                     headers: { 'Accept': 'application/json' }
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('_subject', 'Modal Recruitment Lead');
 
             try {
-                const response = await fetch('https://formsubmit.co/ajax/aradhyalifesolutions@gmail.com', {
+                const response = await fetch('https://formsubmit.co/ajax/info@aradhyalifesolutions.in', {
                     method: 'POST',
                     body: formData,
                     headers: { 'Accept': 'application/json' }
@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(webForm);
 
             try {
-                const response = await fetch('https://formsubmit.co/ajax/aradhyalifesolutions@gmail.com', {
+                const response = await fetch('https://formsubmit.co/ajax/info@aradhyalifesolutions.in', {
                     method: 'POST',
                     body: formData,
                     headers: { 'Accept': 'application/json' }
@@ -323,4 +323,71 @@ document.addEventListener('DOMContentLoaded', () => {
     // Security: Prevent Code Inspection (REMOVED)
     // Anti-inspection scripts like preventing contextmenu ruin mobile UX (e.g. long press).
     // They have been disabled to ensure full cross-device compatibility.
+});
+
+// --- Dynamic CMS Fetching (Real Stories & Gallery) ---
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:5000' : 'https://aradhyaaaa.onrender.com';
+        const res = await fetch(`${API_BASE}/api/content`);
+        const content = await res.json();
+
+        // Update Real Stories on Homepage
+        const storiesGrid = document.querySelector('.stories-grid');
+        if (storiesGrid && content.stories && content.stories.length > 0) {
+            storiesGrid.innerHTML = ''; // clear static fallback
+            content.stories.slice(0, 3).forEach(story => {
+                const card = document.createElement('div');
+                card.className = "story-card reveal active";
+                card.style = "background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s ease;";
+                card.innerHTML = `
+                    <img src="${story.image}" alt="${story.name}" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 3px solid #f1f5f9;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 5px;">${story.name}</h3>
+                    <p style="color: #E11D48; font-size: 0.85rem; font-weight: 600; margin-bottom: 10px;">Previous: ${story.role}</p>
+                    <span style="display: inline-block; background: #f1f5f9; color: #475569; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; margin-bottom: 20px;">${story.highlight}</span>
+                    <p style="color: #64748b; font-style: italic; font-size: 0.95rem; line-height: 1.6;">"${story.text}"</p>
+                `;
+                storiesGrid.appendChild(card);
+            });
+        }
+
+        // Update Detailed Stories on stories.html
+        const detailedContainer = document.getElementById('detailed-stories-container');
+        if (detailedContainer && content.stories && content.stories.length > 0) {
+            detailedContainer.innerHTML = '';
+            content.stories.forEach((story, index) => {
+                const article = document.createElement('article');
+                article.className = "story-item reveal active";
+                
+                // Content Block
+                const contentHtml = `
+                    <div class="story-content">
+                        <span class="story-badge">${story.highlight}</span>
+                        <h2>${story.name}'s Success Story</h2>
+                        <p><strong>Previous Role:</strong> ${story.role}</p>
+                        <blockquote>"${story.text}"</blockquote>
+                        <p><strong>Result:</strong> Achieved financial independence and success with Aradhya Life Solutions.</p>
+                    </div>
+                `;
+                
+                // Image Block
+                const imgHtml = `
+                    <div class="story-img">
+                        <img src="${story.image}" alt="${story.name}">
+                    </div>
+                `;
+
+                // Alternate layout based on index (even/odd)
+                if (index % 2 === 0) {
+                    article.innerHTML = imgHtml + contentHtml;
+                } else {
+                    article.innerHTML = contentHtml + imgHtml;
+                }
+                
+                detailedContainer.appendChild(article);
+            });
+        }
+    } catch(err) {
+        console.error("CMS Fetch Error:", err);
+    }
 });

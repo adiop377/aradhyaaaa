@@ -1,0 +1,29 @@
+{
+  "stories": [
+    {
+      "id": 1,
+      "name": "Priya Sharma",
+      "role": "Former Teacher",
+      "highlight": "Earnings: ₹1.5L/mo",
+      "text": "I switched from teaching to insurance, and the training provided here changed my life completely.",
+      "image": "event_photo_17.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Rahul Verma",
+      "role": "Ex-Banker",
+      "highlight": "Top Performer '23",
+      "text": "The framework and support system at Aradhya Life Solutions is unmatched in the industry.",
+      "image": "event_photo_18.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Amit Kumar",
+      "role": "Business Owner",
+      "highlight": "Passive Income",
+      "text": "Adding insurance to my portfolio was the best decision. The recurring income is fantastic.",
+      "image": "event_photo_19.jpg"
+    }
+  ],
+  "gallery": []
+}

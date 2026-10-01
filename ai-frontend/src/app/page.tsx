@@ -11,9 +11,7 @@ export default function Home() {
       {/* Navbar */}
       <nav className="w-full p-6 flex justify-between items-center max-w-7xl mx-auto relative z-10">
         <div className="text-2xl font-bold tracking-tight">Aradhya <span className="text-rose-500">AI</span></div>
-        <Link href="/dashboard" className="px-6 py-2 rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors font-medium">
-          Admin Login
-        </Link>
+
       </nav>
 
       {/* Hero Section */}

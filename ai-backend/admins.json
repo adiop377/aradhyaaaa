@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "username": "adiop37",
+    "password": "zed#12345#adi@4782",
+    "name": "Super Admin",
+    "permissions": ["leads", "content", "settings", "admins"]
+  }
+]

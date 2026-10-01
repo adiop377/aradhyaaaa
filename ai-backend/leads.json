@@ -316,5 +316,171 @@
       }
     ],
     "createdAt": "2026-07-02T08:37:12.796Z"
+  },
+  {
+    "_id": "local_1790837314564",
+    "name": "Bobby Deol",
+    "city": "bhanghar",
+    "requirement": "Req: i want to join aradhya | Age: 21 | Ins: no | Lang: Hindi",
+    "budget": "5ok",
+    "phoneNumber": "9955542241",
+    "conversationTranscript": [
+      {
+        "role": "user",
+        "text": "Hindi"
+      },
+      {
+        "role": "agent",
+        "text": "Namaste! Main Aradhya Life Solutions ka AI assistant hoon. Main aapki sahi insurance plan chunne mein madad karunga. Kya main aapka naam jaan sakta hoon?"
+      },
+      {
+        "role": "user",
+        "text": "Bobby Deol"
+      },
+      {
+        "role": "agent",
+        "text": "Aapse milkar acha laga, Bobby. Main aaj aapki kaise madad kar sakta hoon?"
+      },
+      {
+        "role": "user",
+        "text": "i want to join aradhya"
+      },
+      {
+        "role": "agent",
+        "text": "Aapki umar (age) kitni hai?"
+      },
+      {
+        "role": "user",
+        "text": "21"
+      },
+      {
+        "role": "agent",
+        "text": "Aap kaunse shahar (city) se hain?"
+      },
+      {
+        "role": "user",
+        "text": "bhanghar"
+      },
+      {
+        "role": "agent",
+        "text": "Aapka mahine ka budget lagbhag kitna hai?"
+      },
+      {
+        "role": "user",
+        "text": "5ok"
+      },
+      {
+        "role": "agent",
+        "text": "Kya aapke paas pehle se koi insurance hai?"
+      },
+      {
+        "role": "user",
+        "text": "no"
+      },
+      {
+        "role": "agent",
+        "text": "Kripya apna 10-digit mobile number bataiye taaki hamare advisor aapke liye best plan taiyar kar sakein."
+      },
+      {
+        "role": "user",
+        "text": "885552246"
+      },
+      {
+        "role": "agent",
+        "text": "Koi baat nahi. Number dena optional hai, par isse hamare advisor ko madad milti hai. Kya aap apna 10-digit mobile number de sakte hain?"
+      },
+      {
+        "role": "user",
+        "text": "9955542241"
+      },
+      {
+        "role": "agent",
+        "text": "Name: Bobby Deol\nCity: bhanghar\nAge: 21\nRequirement: i want to join aradhya\nBudget: 5ok\nPhone Number: 9955542241\n\nKya yeh sab sahi hai?"
+      },
+      {
+        "role": "user",
+        "text": "yes"
+      }
+    ],
+    "createdAt": "2026-10-01T06:48:34.564Z"
+  },
+  {
+    "_id": "local_1790837452940",
+    "name": "sunny",
+    "city": "koderma",
+    "requirement": "Req: i want to join as advisor | Age: 32 | Ins: I don't have | Lang: English",
+    "budget": "50000",
+    "phoneNumber": "9955542241",
+    "conversationTranscript": [
+      {
+        "role": "user",
+        "text": "eng"
+      },
+      {
+        "role": "agent",
+        "text": "Hello! I'm Aradhya AI from Aradhya Life Solutions. I'll help you find the right insurance plan. May I know your name?"
+      },
+      {
+        "role": "user",
+        "text": "sunny"
+      },
+      {
+        "role": "agent",
+        "text": "Nice to meet you, sunny.\nHow can I help you today?"
+      },
+      {
+        "role": "user",
+        "text": "i want to join as advisor"
+      },
+      {
+        "role": "agent",
+        "text": "May I know your age?"
+      },
+      {
+        "role": "user",
+        "text": "32"
+      },
+      {
+        "role": "agent",
+        "text": "Which city are you from?"
+      },
+      {
+        "role": "user",
+        "text": "koderma"
+      },
+      {
+        "role": "agent",
+        "text": "Approximately what is your monthly budget?"
+      },
+      {
+        "role": "user",
+        "text": "50000"
+      },
+      {
+        "role": "agent",
+        "text": "Do you already have any insurance?"
+      },
+      {
+        "role": "user",
+        "text": "I don't have"
+      },
+      {
+        "role": "agent",
+        "text": "Could you please share your mobile number so our advisor can prepare the best plan?"
+      },
+      {
+        "role": "user",
+        "text": "9955 542241"
+      },
+      {
+        "role": "agent",
+        "text": "Name: sunny\nCity: koderma\nAge: 32\nRequirement: i want to join as advisor\nBudget: 50000\nPhone Number: 9955542241\n\nIs everything correct?"
+      },
+      {
+        "role": "user",
+        "text": "yes"
+      }
+    ],
+    "createdAt": "2026-10-01T06:50:52.940Z"
   }
 ]

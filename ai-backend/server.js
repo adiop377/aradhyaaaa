@@ -19,6 +19,109 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
+const ADMINS_FILE = path.join(__dirname, 'admins.json');
+
+// Initialize default admin if none exists
+if (!fs.existsSync(ADMINS_FILE)) {
+    fs.writeFileSync(ADMINS_FILE, JSON.stringify([
+        { id: 1, username: 'admin', password: 'password123', name: 'Super Admin', permissions: ['leads', 'content', 'settings', 'admins'] }
+    ], null, 2));
+}
+
+// Simple Token Middleware
+const authenticateToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    
+    // For this simple static setup, the token is just the username encoded in base64
+    // In production, use JWT.
+    if (token) {
+        try {
+            const decoded = Buffer.from(token, 'base64').toString('utf-8');
+            const admins = JSON.parse(fs.readFileSync(ADMINS_FILE, 'utf8'));
+            const admin = admins.find(a => a.username === decoded);
+            if (admin) {
+                req.admin = admin; // inject admin details
+                return next();
+            }
+        } catch (e) {
+            return res.sendStatus(403);
+        }
+    }
+    res.sendStatus(401);
+};
+
+// --- AUTH API ---
+app.post('/api/login', (req, res) => {
+    const { username, password } = req.body;
+    const admins = JSON.parse(fs.readFileSync(ADMINS_FILE, 'utf8'));
+    const admin = admins.find(a => a.username === username && a.password === password);
+    
+    if (admin) {
+        // Generate a simple dummy token (base64 of username)
+        const token = Buffer.from(username).toString('base64');
+        res.json({ token, name: admin.name, permissions: admin.permissions || [] });
+    } else {
+        res.status(401).json({ error: 'Invalid credentials' });
+    }
+});
+
+// --- ADMINS API ---
+app.get('/api/admins', authenticateToken, (req, res) => {
+    const admins = JSON.parse(fs.readFileSync(ADMINS_FILE, 'utf8'));
+    // Hide passwords from response
+    const safeAdmins = admins.map(a => ({ id: a.id, username: a.username, name: a.name, permissions: a.permissions || [] }));
+    res.json(safeAdmins);
+});
+
+app.post('/api/admins', authenticateToken, (req, res) => {
+    if (!req.admin.permissions?.includes('admins')) return res.status(403).json({ error: 'Permission denied' });
+    const { username, password, name, permissions } = req.body;
+    if (!username || !password) return res.status(400).json({ error: 'Username and password required' });
+    
+    const admins = JSON.parse(fs.readFileSync(ADMINS_FILE, 'utf8'));
+    if (admins.find(a => a.username === username)) {
+        return res.status(400).json({ error: 'Username already exists' });
+    }
+    
+    admins.push({ id: Date.now(), username, password, name: name || 'Admin', permissions: permissions || [] });
+    fs.writeFileSync(ADMINS_FILE, JSON.stringify(admins, null, 2));
+    res.json({ success: true });
+});
+
+app.patch('/api/admins/:id', authenticateToken, (req, res) => {
+    if (!req.admin.permissions?.includes('admins')) return res.status(403).json({ error: 'Permission denied' });
+    const { permissions, username, password } = req.body;
+    if (permissions && !Array.isArray(permissions)) return res.status(400).json({ error: 'Permissions must be an array' });
+
+    let admins = JSON.parse(fs.readFileSync(ADMINS_FILE, 'utf8'));
+    const idx = admins.findIndex(a => a.id.toString() === req.params.id);
+    if (idx === -1) return res.status(404).json({ error: 'Admin not found' });
+
+    // Check username conflict if changing
+    if (username && username !== admins[idx].username) {
+        if (admins.find(a => a.username === username)) {
+            return res.status(400).json({ error: 'Username already taken' });
+        }
+        admins[idx].username = username;
+    }
+    if (password) admins[idx].password = password;
+    if (permissions) admins[idx].permissions = permissions;
+
+    fs.writeFileSync(ADMINS_FILE, JSON.stringify(admins, null, 2));
+    res.json({ success: true });
+});
+
+app.delete('/api/admins/:id', authenticateToken, (req, res) => {
+    if (!req.admin.permissions?.includes('admins')) return res.status(403).json({ error: 'Permission denied' });
+    let admins = JSON.parse(fs.readFileSync(ADMINS_FILE, 'utf8'));
+    if (admins.length <= 1) return res.status(400).json({ error: 'Cannot delete the last admin' });
+    
+    admins = admins.filter(a => a.id.toString() !== req.params.id);
+    fs.writeFileSync(ADMINS_FILE, JSON.stringify(admins, null, 2));
+    res.json({ success: true });
+});
+
 // Basic Lead Schema
 const leadSchema = new mongoose.Schema({
   name: String,
@@ -34,7 +137,8 @@ const leadSchema = new mongoose.Schema({
 const Lead = mongoose.model('Lead', leadSchema);
 
 // API Route to fetch leads for Admin Dashboard
-app.get('/api/leads', async (req, res) => {
+app.get('/api/leads', authenticateToken, async (req, res) => {
+  if (!req.admin.permissions?.includes('leads')) return res.status(403).json({ error: 'Permission denied' });
   try {
     if (mongoose.connection.readyState === 1) {
       const leads = await Lead.find().sort({ createdAt: -1 });
@@ -68,7 +172,8 @@ app.post('/api/leads', async (req, res) => {
 });
 
 // API Route to delete a lead
-app.delete('/api/leads/:id', async (req, res) => {
+app.delete('/api/leads/:id', authenticateToken, async (req, res) => {
+  if (!req.admin.permissions?.includes('leads')) return res.status(403).json({ error: 'Permission denied' });
   try {
     const { id } = req.params;
     if (mongoose.connection.readyState === 1 && !id.startsWith('local_')) {
@@ -285,6 +390,38 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('User disconnected:', socket.id);
   });
+});
+
+// --- CMS Content API ---
+const contentFilePath = path.join(__dirname, 'content.json');
+
+app.get('/api/content', (req, res) => {
+    if (fs.existsSync(contentFilePath)) {
+        res.json(JSON.parse(fs.readFileSync(contentFilePath, 'utf8')));
+    } else {
+        // Default static content fallback
+        res.json({
+            stories: [
+                { id: 1, name: "Priya Sharma", role: "Former Teacher", highlight: "Earnings: ₹1.5L/mo", text: "I switched from teaching to insurance, and the training provided here changed my life completely.", image: "event_photo_17.jpg" },
+                { id: 2, name: "Rahul Verma", role: "Ex-Banker", highlight: "Top Performer '23", text: "The framework and support system at Aradhya Life Solutions is unmatched in the industry.", image: "event_photo_18.jpg" },
+                { id: 3, name: "Amit Kumar", role: "Business Owner", highlight: "Passive Income", text: "Adding insurance to my portfolio was the best decision. The recurring income is fantastic.", image: "event_photo_19.jpg" }
+            ],
+            gallery: [],
+            settings: {
+                aiPrompt: "You are Aradhya AI, the official AI Insurance Assistant. Be polite and helpful."
+            }
+        });
+    }
+});
+
+app.post('/api/content', authenticateToken, (req, res) => {
+    if (!req.admin.permissions?.includes('content') && !req.admin.permissions?.includes('settings')) return res.status(403).json({ error: 'Permission denied' });
+    try {
+        fs.writeFileSync(contentFilePath, JSON.stringify(req.body, null, 2));
+        res.json({ success: true, message: "Content updated successfully" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 });
 
 const PORT = process.env.PORT || 5000;
